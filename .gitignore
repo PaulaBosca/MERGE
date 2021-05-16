@@ -6,3 +6,10 @@ __pycache__/
 /NewVideoProcessing/
 .vs/
 .pio
+.sln
+.pyproj
+.pyproj.user
+/MERGE.pyproj
+/MERGE.pyproj.user
+/MERGE.sln
+/Process.txt

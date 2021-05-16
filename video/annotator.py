@@ -22,7 +22,7 @@ def DrawTankOverlay(tank: TankProcessing, frame):
     # cv2.putText(frame, "r",  (maxp[0] - 5, maxp[1] + 20), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255, 255, 255))
 
 if __name__ == "__main__":
-    video = cv2.VideoCapture('../data/ExperimentVideo.mp4')
+    video = cv2.VideoCapture(abspath(join(dirname(__file__),'../data/ExperimentVideo.mp4')))
     frame_count = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
     fps = video.get(cv2.CAP_PROP_FPS)
     

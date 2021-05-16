@@ -2,6 +2,7 @@ import cv2
 from typing import Tuple, List
 import json
 import numpy as np
+from os.path import abspath, dirname, join
 
 class HSVRange:
     def __init__(self, minHSV: Tuple[int, int, int], maxHSV: Tuple[int, int, int]):
@@ -118,7 +119,7 @@ def JsonToTank(json_str: str) -> TankProcessing:
     return TankProcessing(json_dict["min"], json_dict["max"], JsonToHSVRangeList(json.dumps(json_dict["hsvRanges"])), json_dict["erosion_size"], json_dict["dilation_size"], json_dict["min_contour_area"])
 
 def WriteTankSettings(tank1: TankProcessing, tank2: TankProcessing, tank3: TankProcessing):
-    with open("../out/video_tank_settings.json", "w") as f:
+    with open(abspath(join(dirname(__file__),"../out/video_tank_settings.json")), "w") as f:
         f.write(json.dumps([
             json.loads(TankToJson(tank1)), 
             json.loads(TankToJson(tank2)), 
@@ -126,18 +127,18 @@ def WriteTankSettings(tank1: TankProcessing, tank2: TankProcessing, tank3: TankP
         ], indent=4))
 
 def ReadTankSettings() -> Tuple[TankProcessing, TankProcessing, TankProcessing]:
-    with open("../out/video_tank_settings.json", "r") as f:
+    with open(abspath(join(dirname(__file__), "../out/video_tank_settings.json")), "r") as f:
         json_list = json.loads(f.read())
         return JsonToTank(json.dumps(json_list[0])), JsonToTank(json.dumps(json_list[1])), JsonToTank(json.dumps(json_list[2]))
 
 # Video Markers ------------------------
 def ReadVideoMarkers() -> List[int]:
-    with open("../out/video_markers.json", "r") as f:
+    with open(abspath(join(dirname(__file__),"../out/video_markers.json")), "r") as f:
         json_str = f.read()
         return json.loads(json_str)
 
 def WriteVideoMarkers(markers: List[int]):
-    with open("../out/video_markers.json", "w") as f:
+    with open(abspath(join(dirname(__file__),"../out/video_markers.json")), "w") as f:
         f.write(json.dumps(markers))
     
 def ToggleVideoMarker(markers: List[int], frame: int):
