@@ -22,7 +22,8 @@ def DrawTankOverlay(tank: TankProcessing, frame):
     # cv2.putText(frame, "r",  (maxp[0] - 5, maxp[1] + 20), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255, 255, 255))
 
 if __name__ == "__main__":
-    video = cv2.VideoCapture(abspath(join(dirname(__file__),'../data/ExperimentVideo.mp4')))
+    vidnum = '3'
+    video = cv2.VideoCapture(abspath(join(dirname(__file__),'../data/ExperimentVideo_00'+vidnum+'.mp4')))
     frame_count = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
     fps = video.get(cv2.CAP_PROP_FPS)
     
@@ -256,7 +257,7 @@ if __name__ == "__main__":
 
             if prev_marked_frame < frame_count:
                 curr_frame = prev_marked_frame
-        elif key == 46: # ',' key - Next marked frame
+        elif key == 46: # '.' key - Next marked frame
             next_marked_frame = markers[0]
             for marker in reversed(markers):
                 if marker > curr_frame:
