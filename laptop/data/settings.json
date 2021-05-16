@@ -1,0 +1,39 @@
+{
+    "port": 4,
+    "states": [
+        {
+            "name": "State 1",
+            "time": 10,
+            "pump1": 100,
+            "pump2": 100,
+            "keybind": "C"
+        },
+        {
+            "name": "State 2",
+            "time": 5,
+            "pump1": -100,
+            "pump2": 50,
+            "keybind": "D"
+        },
+        {
+            "name": "State 3",
+            "time": 2,
+            "pump1": 0,
+            "pump2": -50,
+            "keybind": "U"
+        },
+        {
+            "name": "LOOONG",
+            "time": 600,
+            "pump1": 100,
+            "pump2": -100,
+            "keybind": "L"
+        }
+    ],
+    "side_list_width": 300,
+    "graph_height": 300,
+    "loadcell1": {
+        "offset": 0,
+        "sensitivity": 1
+    }
+}
